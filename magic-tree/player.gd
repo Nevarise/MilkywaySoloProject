@@ -1,29 +1,37 @@
 extends CharacterBody2D
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@export_flags_2d_physics var layers_2d_physics
+enum STATE {
+	FALL,
+	FLOOR,
+	JUMP,
+	DOUBLEJUMP
+}
 
-func _physics_process(_delta):
-	pass
-		
-		#detect inpit
-		#store variable
-			#To move around
-	var directionx = Input.get_axis("ui_left","ui_right")
-	velocity.x = directionx * 200
-						 
-		#animation
-	if directionx:
-		animated_sprite_2d.play("walk")
-		
-		#flips sprite around when looking left and right
-	var anim = $AnimatedSprite2D
-	if 	Input.is_action_pressed("ui_left"): 
-		anim.flip_h = true
-	if 	Input.is_action_pressed("ui_right"): 
-		anim.flip_h = false
-			
-	if not Input.is_anything_pressed():
-		animated_sprite_2d.play("idle")
-		
+const FALL_GRAVITY := 1500.0
+const FALL_VELOCITY:= 500.0
+const WALK_VELOCITY := 200.0
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
+var active_state := STATE.FALL
+
+func _ready() -> void:
+	switch_state(active_state)
+
+func _physics_process(delta: float) -> void:
+	process_state(delta)
 	move_and_slide()
+	
+func switch_state(to_state: STATE) -> void:
+	active_state = to_state
+	
+	match active_state: 
+		STATE.FALL:	
+			animated_sprite_2d.play("fall")
+
+func process_state(_delta: float) -> void:
+	match active_state:
+		STATE.FALL:
+			pass
+func handle_movement() -> void: 
+	var input_direction := signf(Input.get_axis("move_left","move_right"))
