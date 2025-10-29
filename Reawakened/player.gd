@@ -11,12 +11,12 @@ enum STATE {
 
 const FALL_GRAVITY := 1500.0
 const FALL_VELOCITY:= 500.0
-const WALK_VELOCITY := 200.0
+const WALK_VELOCITY := 150.0
 const JUMP_VELOCITY := -450.0
 const JUMP_DECELERATION := 1500.0
 const ACCELERATION := 0.1
 const DECELERATION := 0.1
-const SPRINT := 400.0
+const SPRINT := 300.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var coyote_timer: Timer = $"Coyote Timer"
