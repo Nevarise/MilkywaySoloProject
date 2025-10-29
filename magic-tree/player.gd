@@ -14,6 +14,9 @@ const FALL_VELOCITY:= 500.0
 const WALK_VELOCITY := 200.0
 const JUMP_VELOCITY := -450.0
 const JUMP_DECELERATION := 1500.0
+const ACCELERATION := 0.1
+const DECELERATION := 0.1
+const SPRINT := 600.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var coyote_timer: Timer = $"Coyote Timer"
@@ -56,7 +59,11 @@ func process_state(delta: float) -> void:
 		
 		STATE.FLOOR:
 			if Input.get_axis("left", "right"):
-				animated_sprite_2d.play("walk")
+				if Input.is_action_just_pressed("sprint"):
+					animated_sprite_2d.play("run")
+					print("running now")
+				else:
+					animated_sprite_2d.play("walk")
 			else:
 				animated_sprite_2d.play("idle")
 			handle_movement()
@@ -77,6 +84,11 @@ func process_state(delta: float) -> void:
 			
 func handle_movement() -> void: 
 	var input_direction := signf(Input.get_axis("left","right"))
+	var Speed = WALK_VELOCITY
+		
 	if input_direction:
 		animated_sprite_2d.flip_h = input_direction < 0
-	velocity.x = input_direction * WALK_VELOCITY
+		velocity.x = lerp(velocity.x, input_direction * Speed, ACCELERATION)
+	else:
+		velocity.x = lerp(velocity.x, 0.0, DECELERATION)
+		
