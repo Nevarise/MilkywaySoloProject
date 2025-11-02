@@ -80,6 +80,7 @@ func process_state(delta: float) -> void:
 			if Input.is_action_just_released("jump") or velocity.y >= 0:
 				velocity.y = 0
 				switch_state(STATE.FALL)
+			
 		
 			
 func handle_movement() -> void: 
