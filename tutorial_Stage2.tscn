@@ -130,7 +130,7 @@ tile_map_data = PackedByteArray("AABvAPL/AAAHAAEAAABwAPL/AAAHAAEAAABxAPL/AAAHAAE
 tile_set = SubResource("TileSet_l5glt")
 
 [node name="Respawn" parent="." instance=ExtResource("3_qtx68")]
-position = Vector2(1746, 467)
+position = Vector2(1746, 662)
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-92, 69)

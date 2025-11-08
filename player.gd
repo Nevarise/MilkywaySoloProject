@@ -57,21 +57,28 @@ func process_state(delta: float) -> void:
 				switch_state(STATE.FLOOR)
 			elif Input.is_action_just_pressed("jump") and coyote_timer.time_left > 0:
 				switch_state(STATE.JUMP)
+			elif Input.is_action_just_pressed("swing"):
+				switch_state(STATE.SWING)
 		
 		STATE.FLOOR:
 			if Input.get_axis("left", "right"):
-				if Input.is_action_pressed("sprint"):
-					animated_sprite_2d.play("run")
+				if Input.is_action_just_pressed("swing"):
+					switch_state(STATE.SWING)
 				else:
-					animated_sprite_2d.play("walk")
+					if Input.is_action_pressed("sprint"):
+						animated_sprite_2d.play("run")
+					else:
+						animated_sprite_2d.play("walk")
 			else:
 				animated_sprite_2d.play("idle")
 			handle_movement()
 			
 			if not is_on_floor():
-				switch_state(STATE.FALL)
+					switch_state(STATE.FALL)
 			elif Input.is_action_just_pressed("jump"):
 				switch_state(STATE.JUMP)
+			elif Input.is_action_just_pressed("swing"):
+				switch_state(STATE.SWING)
 				
 		STATE.JUMP:
 			velocity.y = move_toward(velocity.y, 0, JUMP_DECELERATION * delta)
@@ -80,9 +87,18 @@ func process_state(delta: float) -> void:
 			if Input.is_action_just_released("jump") or velocity.y >= 0:
 				velocity.y = 0
 				switch_state(STATE.FALL)
+				
+		STATE.SWING: 
+			switch_state(STATE.JUMP)
 			
-		
-			
+			if Input.is_action_just_released("swing"):
+				if is_on_floor():
+					switch_state(STATE.FLOOR)
+				elif Input.is_action_just_pressed("jump") and coyote_timer.time_left > 0:
+					switch_state(STATE.JUMP)
+				else:
+					switch_state(STATE.FLOOR)
+	
 func handle_movement() -> void: 
 	var input_direction := signf(Input.get_axis("left","right"))
 	var Speed = WALK_VELOCITY

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bik3tpjvp7wxx"]
+[gd_scene load_steps=43 format=3 uid="uid://bik3tpjvp7wxx"]
 
 [ext_resource type="Texture2D" uid="uid://cb56ysvt766rq" path="res://addons/Idle.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cxuufgytkvfvr" path="res://player.gd" id="1_i3pqv"]
@@ -308,10 +308,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2hs0m"]
-normal = Vector2(0.0009203603, -0.9999995)
-distance = -10.500007
-
 [node name="Player" type="CharacterBody2D"]
 rotation = -0.0009189537
 scale = Vector2(1.996943, 2)
@@ -352,9 +348,3 @@ scale = Vector2(1, 1.0000004)
 points = PackedVector2Array(0, 0, 0, 0)
 width = 1.0
 default_color = Color(0.2801894, 0.5326429, 0.46838203, 1)
-
-[node name="swing swing" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="swing swing"]
-position = Vector2(-0.47223404, -31.000446)
-shape = SubResource("WorldBoundaryShape2D_2hs0m")
