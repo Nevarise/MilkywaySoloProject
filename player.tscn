@@ -1,11 +1,10 @@
-[gd_scene load_steps=44 format=3 uid="uid://bik3tpjvp7wxx"]
+[gd_scene load_steps=42 format=3 uid="uid://bik3tpjvp7wxx"]
 
 [ext_resource type="Texture2D" uid="uid://cb56ysvt766rq" path="res://addons/Idle.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cxuufgytkvfvr" path="res://player.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://cbinl25af38u0" path="res://Lightning Mage/Jump.png" id="2_sweqy"]
 [ext_resource type="Texture2D" uid="uid://uy84j587ury6" path="res://Lightning Mage/Walk.png" id="3_hqtel"]
 [ext_resource type="Texture2D" uid="uid://br5cpmn6a8ekw" path="res://Lightning Mage/Run.png" id="4_2hs0m"]
-[ext_resource type="Script" uid="uid://bcodx10u4dn7j" path="res://grappling.gd" id="6_2hs0m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(12, 32)
@@ -308,10 +307,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2hs0m"]
-normal = Vector2(0.0009203603, -0.9999995)
-distance = -10.500007
-
 [node name="Player" type="CharacterBody2D"]
 rotation = -0.0009189537
 scale = Vector2(1.996943, 2)
@@ -340,21 +335,12 @@ limit_left = -2200
 limit_bottom = 500
 position_smoothing_enabled = true
 
-[node name="Grappling" type="Node2D" parent="."]
-script = ExtResource("6_2hs0m")
-
-[node name="RayCast2D" type="RayCast2D" parent="Grappling"]
-scale = Vector2(1, 1.0000002)
-target_position = Vector2(50, 0)
-
-[node name="Line2D" type="Line2D" parent="Grappling"]
-scale = Vector2(1, 1.0000004)
+[node name="Line2D" type="Line2D" parent="."]
+scale = Vector2(1, 1.0000005)
 points = PackedVector2Array(0, 0, 0, 0)
 width = 1.0
 default_color = Color(0.2801894, 0.5326429, 0.46838203, 1)
 
-[node name="swing swing" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="swing swing"]
-position = Vector2(-0.4685526, -35.000446)
-shape = SubResource("WorldBoundaryShape2D_2hs0m")
+[node name="RayCast2D" type="RayCast2D" parent="."]
+scale = Vector2(1, 1.0000005)
+target_position = Vector2(50, 0)
