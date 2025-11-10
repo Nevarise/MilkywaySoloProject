@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://tx83fav00mfo"]
+[gd_scene load_steps=10 format=3 uid="uid://tx83fav00mfo"]
 
 [ext_resource type="Script" uid="uid://dblebtn83y6wt" path="res://starting_screen.gd" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://bs3wmkbvrxgh1" path="res://Not_ready_yet_text.gd" id="2_7vrkn"]
+[ext_resource type="Script" uid="uid://bu25pngicpn8x" path="res://not_ready_yet2.gd" id="3_fu7sn"]
 
 [sub_resource type="FontVariation" id="FontVariation_rhts7"]
 
@@ -38,6 +40,9 @@ expand_margin_right = 15.0
 expand_margin_bottom = 15.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rhts7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu7sn"]
+bg_color = Color(0.3036386, 0.3012351, 0.27536073, 1)
 
 [node name="Main menu" type="Control"]
 layout_mode = 3
@@ -80,6 +85,22 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_rhts7")
 text = "Start game"
 metadata/_edit_use_anchors_ = true
 
+[node name="Not_ready_yet1" type="Label" parent="main box/main buttons/Start"]
+layout_mode = 0
+offset_left = -31.0
+offset_top = -26.0
+offset_right = 265.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_fu7sn")
+text = "Oops! Not ready yet!
+       Sorry folks!"
+script = ExtResource("2_7vrkn")
+
+[node name="pop up timer1" type="Timer" parent="main box/main buttons/Start/Not_ready_yet1"]
+wait_time = 2.0
+one_shot = true
+
 [node name="Practice" type="Button" parent="main box/main buttons"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.13028878, 0.060702644, 0.023839992, 1)
@@ -94,7 +115,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rhts7")
 text = "Tutorial"
 
-[node name="Button3" type="Button" parent="main box/main buttons"]
+[node name="Options" type="Button" parent="main box/main buttons"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.13028878, 0.060702644, 0.023839992, 1)
 theme_override_colors/font_focus_color = Color(0.3764706, 0.21568628, 0.1254902, 1)
@@ -108,7 +129,28 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rhts7")
 text = "Options"
 
+[node name="Not_ready_yet" type="Label" parent="main box/main buttons/Options"]
+layout_mode = 0
+offset_left = -33.0
+offset_top = -21.0
+offset_right = 263.0
+offset_bottom = 66.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_fu7sn")
+text = "Oops! Not ready yet!
+       Sorry folks!"
+script = ExtResource("3_fu7sn")
+
+[node name="pop up timer2" type="Timer" parent="main box/main buttons/Options/Not_ready_yet"]
+wait_time = 2.0
+one_shot = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="main box/main buttons"]
 
 [connection signal="pressed" from="main box/main buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="main box/main buttons/Start" to="main box/main buttons/Start/Not_ready_yet1" method="_on_start_pressed"]
+[connection signal="timeout" from="main box/main buttons/Start/Not_ready_yet1/pop up timer1" to="main box/main buttons/Start/Not_ready_yet1" method="_on_pop_up_timer_timeout"]
 [connection signal="pressed" from="main box/main buttons/Practice" to="." method="_on_practice_pressed"]
+[connection signal="pressed" from="main box/main buttons/Options" to="main box/main buttons/Options/Not_ready_yet" method="_on_options_pressed"]
+[connection signal="timeout" from="main box/main buttons/Options/Not_ready_yet/pop up timer2" to="main box/main buttons/Options/Not_ready_yet" method="_on_pop_up_timer_2_timeout"]
+[connection signal="timeout" from="main box/main buttons/Options/Not_ready_yet/pop up timer2" to="main box/main buttons/Options/Not_ready_yet" method="_on_pop_up_timer_timeout"]

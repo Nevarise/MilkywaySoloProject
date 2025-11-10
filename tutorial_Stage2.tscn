@@ -116,7 +116,7 @@ sources/0 = SubResource("TileSetAtlasSource_s2bxj")
 position = Vector2(-1746, -3)
 
 [node name="Player" parent="." instance=ExtResource("1_2glgs")]
-position = Vector2(1657.9999, -160)
+position = Vector2(-6.9999924, 19)
 scale = Vector2(1.2, 1.197)
 
 [node name="map" type="Node2D" parent="."]
