@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://tx83fav00mfo"]
+[gd_scene load_steps=7 format=3 uid="uid://tx83fav00mfo"]
+
+[ext_resource type="Script" uid="uid://dblebtn83y6wt" path="res://starting_screen.gd" id="1_06t4h"]
 
 [sub_resource type="FontVariation" id="FontVariation_rhts7"]
 
@@ -19,6 +21,10 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
 bg_color = Color(0.47948045, 0.31949756, 0.24284536, 1)
@@ -26,6 +32,10 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rhts7"]
 
@@ -36,50 +46,53 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_06t4h")
 
 [node name="main box" type="Node2D" parent="."]
+position = Vector2(1, -75)
 
 [node name="Polygon2D" type="Polygon2D" parent="main box"]
-position = Vector2(128, 133.00002)
-scale = Vector2(0.8613137, 0.81395346)
-color = Color(0.60443157, 0.4326833, 0.35612488, 1)
+position = Vector2(96, 120)
+scale = Vector2(0.9416054, 0.9974582)
+color = Color(0.5664789, 0.39055693, 0.33104035, 1)
 polygon = PackedVector2Array(640, 64, 640, 277.7714, 640, 493.99997, 841.16974, 493.99994, 1051, 494, 1051.0001, 279, 1051, 64)
 
 [node name="main buttons" type="VBoxContainer" parent="main box"]
-offset_left = 760.0
-offset_top = 247.0
-offset_right = 950.0
-offset_bottom = 462.0
-theme_override_constants/separation = 49
-
-[node name="Button" type="Button" parent="main box/main buttons"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.13028878, 0.060702644, 0.023839992, 1)
-theme_override_colors/font_focus_color = Color(0.3764706, 0.21568628, 0.1254902, 1)
-theme_override_colors/font_pressed_color = Color(0.8759997, 0.66867983, 0.5625733, 1)
-theme_override_colors/font_hover_color = Color(0.3031488, 0.17102718, 0.09278814, 1)
-theme_override_fonts/font = SubResource("FontVariation_rhts7")
-theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rhts7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rhts7")
-text = "Story Mode"
+offset_left = 778.0
+offset_top = 254.0
+offset_right = 1002.0
+offset_bottom = 570.0
+theme_override_constants/separation = 75
 metadata/_edit_use_anchors_ = true
 
-[node name="Button2" type="Button" parent="main box/main buttons"]
+[node name="Start" type="Button" parent="main box/main buttons"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.13028878, 0.060702644, 0.023839992, 1)
 theme_override_colors/font_focus_color = Color(0.3764706, 0.21568628, 0.1254902, 1)
 theme_override_colors/font_pressed_color = Color(0.8759997, 0.66867983, 0.5625733, 1)
 theme_override_colors/font_hover_color = Color(0.3031488, 0.17102718, 0.09278814, 1)
 theme_override_fonts/font = SubResource("FontVariation_rhts7")
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 33
 theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rhts7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rhts7")
-text = "Saved"
+text = "Start game"
+metadata/_edit_use_anchors_ = true
+
+[node name="Practice" type="Button" parent="main box/main buttons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.13028878, 0.060702644, 0.023839992, 1)
+theme_override_colors/font_focus_color = Color(0.3764706, 0.21568628, 0.1254902, 1)
+theme_override_colors/font_pressed_color = Color(0.8759997, 0.66867983, 0.5625733, 1)
+theme_override_colors/font_hover_color = Color(0.3031488, 0.17102718, 0.09278814, 1)
+theme_override_fonts/font = SubResource("FontVariation_rhts7")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rhts7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rhts7")
+text = "Tutorial"
 
 [node name="Button3" type="Button" parent="main box/main buttons"]
 layout_mode = 2
@@ -88,11 +101,14 @@ theme_override_colors/font_focus_color = Color(0.3764706, 0.21568628, 0.1254902,
 theme_override_colors/font_pressed_color = Color(0.8759997, 0.66867983, 0.5625733, 1)
 theme_override_colors/font_hover_color = Color(0.3031488, 0.17102718, 0.09278814, 1)
 theme_override_fonts/font = SubResource("FontVariation_rhts7")
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 33
 theme_override_styles/normal = SubResource("StyleBoxFlat_06t4h")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rhts7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7vrkn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_rhts7")
-text = "Tutorial levels"
+text = "Options"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="main box/main buttons"]
+
+[connection signal="pressed" from="main box/main buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="main box/main buttons/Practice" to="." method="_on_practice_pressed"]
