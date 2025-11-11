@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://tx83fav00mfo"]
 
-[ext_resource type="Script" uid="uid://dblebtn83y6wt" path="res://starting_screen.gd" id="1_06t4h"]
-[ext_resource type="Script" uid="uid://bs3wmkbvrxgh1" path="res://Not_ready_yet_text.gd" id="2_7vrkn"]
-[ext_resource type="Script" uid="uid://bu25pngicpn8x" path="res://not_ready_yet2.gd" id="3_fu7sn"]
+[ext_resource type="Script" uid="uid://dblebtn83y6wt" path="res://Scripts/starting_screen.gd" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://bs3wmkbvrxgh1" path="res://Scripts/Not_ready_yet_text.gd" id="2_7vrkn"]
+[ext_resource type="Script" uid="uid://bu25pngicpn8x" path="res://Scripts/not_ready_yet2.gd" id="3_fu7sn"]
 
 [sub_resource type="FontVariation" id="FontVariation_rhts7"]
 
@@ -152,5 +152,5 @@ one_shot = true
 [connection signal="timeout" from="main box/main buttons/Start/Not_ready_yet1/pop up timer1" to="main box/main buttons/Start/Not_ready_yet1" method="_on_pop_up_timer_timeout"]
 [connection signal="pressed" from="main box/main buttons/Practice" to="." method="_on_practice_pressed"]
 [connection signal="pressed" from="main box/main buttons/Options" to="main box/main buttons/Options/Not_ready_yet" method="_on_options_pressed"]
-[connection signal="timeout" from="main box/main buttons/Options/Not_ready_yet/pop up timer2" to="main box/main buttons/Options/Not_ready_yet" method="_on_pop_up_timer_2_timeout"]
 [connection signal="timeout" from="main box/main buttons/Options/Not_ready_yet/pop up timer2" to="main box/main buttons/Options/Not_ready_yet" method="_on_pop_up_timer_timeout"]
+[connection signal="timeout" from="main box/main buttons/Options/Not_ready_yet/pop up timer2" to="main box/main buttons/Options/Not_ready_yet" method="_on_pop_up_timer_2_timeout"]

@@ -14,8 +14,8 @@ const FALL_VELOCITY:= 500.0
 const WALK_VELOCITY := 150.0
 const JUMP_VELOCITY := -450.0
 const JUMP_DECELERATION := 1500.0
-const ACCELERATION := 0.1
-const DECELERATION := 0.1
+const ACCELERATION := 0.12
+const DECELERATION := 0.12
 const SPRINT := 300.0
 
 
@@ -24,7 +24,7 @@ const SPRINT := 300.0
 
 var target : Vector2
 var launched = false
-@export var rest_length = 50.0
+@export var rest_length = 200.0
 @export var stiffness := 20.0
 @export var damping := 2.0
 @onready var player: CharacterBody2D = $"."

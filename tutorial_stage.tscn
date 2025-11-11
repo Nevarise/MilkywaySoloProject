@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=4 uid="uid://x1awlvtum1ph"]
 
 [ext_resource type="Texture2D" uid="uid://ymrbksicnhqp" path="res://Tiles/TrapmoorTileset_v03.png" id="2_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://bik3tpjvp7wxx" path="res://player.tscn" id="2_feb5d"]
-[ext_resource type="PackedScene" uid="uid://bjtps5xhujclv" path="res://respawn.tscn" id="3_vkr7r"]
-[ext_resource type="PackedScene" uid="uid://c1kaftnegt4yr" path="res://scene_change.tscn" id="4_1ro7q"]
+[ext_resource type="PackedScene" uid="uid://bik3tpjvp7wxx" path="res://Scenes/player.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://bjtps5xhujclv" path="res://Scenes/respawn.tscn" id="3_vkr7r"]
+[ext_resource type="PackedScene" uid="uid://c1kaftnegt4yr" path="res://Scenes/scene_change.tscn" id="4_1ro7q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
 texture = ExtResource("2_e2o6t")
