@@ -311,6 +311,9 @@ animations = [{
 rotation = -0.0009189537
 scale = Vector2(1.996943, 2)
 script = ExtResource("1_i3pqv")
+rest_length = null
+stiffness = null
+damping = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_onrkg")

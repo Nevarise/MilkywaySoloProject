@@ -22,6 +22,7 @@ const SPRINT := 300.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var coyote_timer: Timer = $"Coyote Timer"
 
+
 var target : Vector2
 var launched = false
 @export var rest_length = 200.0
@@ -35,6 +36,7 @@ var active_state := STATE.FALL
 
 func _ready() -> void:
 	switch_state(active_state)
+	self.position = Global.spawn_point
 
 func _physics_process(delta: float) -> void:
 	process_state(delta)
@@ -107,7 +109,8 @@ func process_state(delta: float) -> void:
 					switch_state(STATE.FALL)
 			if launched:
 				handle_grapple(delta)
-		
+
+#Grappling functions
 func launch():
 	if ray.is_colliding():
 		launched = true
@@ -136,7 +139,8 @@ func handle_grapple(delta):
 	
 func update_rope():
 	rope.set_point_position(1, to_local(target))
-	
+
+#Movement for others
 func handle_movement() -> void: 
 	var input_direction := signf(Input.get_axis("left","right"))
 	var Speed = WALK_VELOCITY

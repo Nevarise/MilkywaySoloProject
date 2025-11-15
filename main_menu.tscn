@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://tx83fav00mfo"]
 
-[ext_resource type="Script" uid="uid://dblebtn83y6wt" path="res://Scripts/starting_screen.gd" id="1_06t4h"]
-[ext_resource type="Script" uid="uid://bs3wmkbvrxgh1" path="res://Scripts/Not_ready_yet_text.gd" id="2_7vrkn"]
-[ext_resource type="Script" uid="uid://bu25pngicpn8x" path="res://Scripts/not_ready_yet2.gd" id="3_fu7sn"]
+[ext_resource type="Script" uid="uid://dblebtn83y6wt" path="res://Scripts/starting_screen.gd" id="1_1ehe0"]
+[ext_resource type="Script" uid="uid://bs3wmkbvrxgh1" path="res://Scripts/Not_ready_yet_text.gd" id="2_ce3w2"]
+[ext_resource type="Script" uid="uid://bu25pngicpn8x" path="res://Scripts/not_ready_yet2.gd" id="3_n45e2"]
 
 [sub_resource type="FontVariation" id="FontVariation_rhts7"]
 
@@ -51,7 +51,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_06t4h")
+script = ExtResource("1_1ehe0")
 
 [node name="main box" type="Node2D" parent="."]
 position = Vector2(1, -75)
@@ -95,7 +95,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_fu7sn")
 text = "Oops! Not ready yet!
        Sorry folks!"
-script = ExtResource("2_7vrkn")
+script = ExtResource("2_ce3w2")
 
 [node name="pop up timer1" type="Timer" parent="main box/main buttons/Start/Not_ready_yet1"]
 wait_time = 2.0
@@ -139,7 +139,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_fu7sn")
 text = "Oops! Not ready yet!
        Sorry folks!"
-script = ExtResource("3_fu7sn")
+script = ExtResource("3_n45e2")
 
 [node name="pop up timer2" type="Timer" parent="main box/main buttons/Options/Not_ready_yet"]
 wait_time = 2.0
