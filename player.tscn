@@ -1,10 +1,14 @@
-[gd_scene load_steps=42 format=3 uid="uid://bik3tpjvp7wxx"]
+[gd_scene load_steps=43 format=3 uid="uid://bik3tpjvp7wxx"]
 
 [ext_resource type="Texture2D" uid="uid://cb56ysvt766rq" path="res://addons/Idle.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cxuufgytkvfvr" path="res://Scripts/player.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://cbinl25af38u0" path="res://Lightning Mage/Jump.png" id="2_sweqy"]
 [ext_resource type="Texture2D" uid="uid://uy84j587ury6" path="res://Lightning Mage/Walk.png" id="3_hqtel"]
 [ext_resource type="Texture2D" uid="uid://br5cpmn6a8ekw" path="res://Lightning Mage/Run.png" id="4_2hs0m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fkybt"]
+radius = 4.0061216
+height = 20.99999
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(12, 32)
@@ -311,9 +315,13 @@ animations = [{
 rotation = -0.0009189537
 scale = Vector2(1.996943, 2)
 script = ExtResource("1_i3pqv")
-rest_length = null
-stiffness = null
-damping = null
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(1, 1.0000001)
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_fkybt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_onrkg")
@@ -322,7 +330,7 @@ shape = SubResource("RectangleShape2D_onrkg")
 position = Vector2(-31.508171, -43.528927)
 scale = Vector2(0.5164142, 0.46093747)
 sprite_frames = SubResource("SpriteFrames_pylmc")
-animation = &"walk"
+animation = &"touchdown"
 autoplay = "idle"
 centered = false
 

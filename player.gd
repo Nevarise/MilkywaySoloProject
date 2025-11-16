@@ -36,7 +36,6 @@ var active_state := STATE.FALL
 
 func _ready() -> void:
 	switch_state(active_state)
-	self.position = Global.spawn_point
 
 func _physics_process(delta: float) -> void:
 	process_state(delta)

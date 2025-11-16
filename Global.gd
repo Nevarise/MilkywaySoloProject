@@ -1,7 +1,7 @@
 extends Node
 
-var spawn_point = Vector2
+var check_point = Vector2(-2164,-17)
 
 func update_spawn(new_point):
-	spawn_point = new_point
+	check_point = new_point
 	
